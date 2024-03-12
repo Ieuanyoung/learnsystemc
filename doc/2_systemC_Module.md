@@ -21,6 +21,7 @@
 4. 模块间通信通常应使用接口方法调用完成，也就是说，模块应通过其端口与环境通信，调试时可以用其他通信机制。
 
 ```c++
+// Learn with Examples, 2020, MIT license
 #include <systemc>
 using namespace sc_core;
 

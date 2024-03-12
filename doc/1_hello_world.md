@@ -1,6 +1,7 @@
 # hello world
 
 ```c++
+// Learn with Examples, 2020, MIT license
 #include <systemc>
 using namespace sc_core; 
 
