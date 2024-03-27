@@ -14,27 +14,27 @@ SystemC提供了一个宏（SC_CTOR），以方便声明或定义模块的构造
 using namespace sc_core;
 
 SC_MODULE(MODULE_A) {
-  SC_CTOR(MODULE_A) { // constructor taking only module name
-    SC_METHOD(func_a); // register member function to systemC simulation kernel, to be explained later.
+  SC_CTOR(MODULE_A) { // 构造函数只接收模块名参数
+    SC_METHOD(func_a); // 将成员函数注册到systemC仿真内核，稍后解释
   }
-  void func_a() { // a member function with no input, no output
+  void func_a() { // 一个无输入输出的成员函数
     std::cout << name() << std::endl;
   }
 };
 
 SC_MODULE(MODULE_B) {
-  SC_CTOR(MODULE_B) { // constructor
-    SC_METHOD(func_b); // register member function
+  SC_CTOR(MODULE_B) { // 构造函数
+    SC_METHOD(func_b); // 注册成员函数
   }
-  void func_b(); // declare function
+  void func_b(); // 声明函数
 };
-void MODULE_B::func_b() { // define function outside class definition
+void MODULE_B::func_b() { // 类外定义函数
   std::cout << this->name() << std::endl;
 }
-SC_MODULE(MODULE_C) { // constructor taking more arguments
+SC_MODULE(MODULE_C) { // 构造函数可以接收更多参数
   const int i;
-  SC_CTOR(MODULE_C); // SC_HAS_PROCESS is recommended, see next example for details
-  MODULE_C(sc_module_name name, int i) : sc_module(name), i(i) { // explcit constructor
+  SC_CTOR(MODULE_C); // 推荐使用SC_HAS_PROCESS, 下一个例子解释
+  MODULE_C(sc_module_name name, int i) : sc_module(name), i(i) {
     SC_METHOD(func_c);
   }
   void func_c() {

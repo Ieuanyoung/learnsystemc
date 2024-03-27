@@ -29,71 +29,71 @@ SC_HAS_PROCESS从systemC v2.0开始引入。它只有一个参数，即模块类
 #include <systemc>
 using namespace sc_core;
 
-SC_MODULE(MODULE_A) { // module without simulation processes doesn't need SC_CTOR or SC_HAS_PROCESS
-  MODULE_A(sc_module_name name) { // c++ style constructor, the base class is implicitly instantiated with module name.
+SC_MODULE(MODULE_A) { // 没有仿真过程的模块不需要SC_CTOR或SC_HAS_PROCESS
+  MODULE_A(sc_module_name name) { // c++风格构造函数, 基类使用模块名称隐式实例化
     std::cout << this->name() << ", no SC_CTOR or SC_HAS_PROCESS" << std::endl;
   }
 };
 
-SC_MODULE(MODULE_B1) { // constructor with module name as the only input argument
-  SC_CTOR(MODULE_B1) { // implicitly declares a constructor of MODULE_B1(sc_module_name)
-    SC_METHOD(func_b); // register member function to simulation kernel
+SC_MODULE(MODULE_B1) { // 将模块名称作为唯一输入参数的构造函数
+  SC_CTOR(MODULE_B1) { // 隐式声明MODULE_B1(sc_module_name)的构造函数
+    SC_METHOD(func_b); // 注册成员函数到仿真内核
   }
   void func_b() { // define function
     std::cout << name() << ", SC_CTOR" << std::endl;
   }
 };
 
-SC_MODULE(MODULE_B2) { // constructor with module name as the only input argument
-  SC_HAS_PROCESS(MODULE_B2); // no implicit constructor declarition
-  MODULE_B2(sc_module_name name) { // explicit constructor declaration, also instantiate base class by default via sc_module(name)
-    SC_METHOD(func_b); // register member function
+SC_MODULE(MODULE_B2) { // 将模块名称作为唯一输入参数的构造函数
+  SC_HAS_PROCESS(MODULE_B2); // 没有隐式构造函数声明
+  MODULE_B2(sc_module_name name) { // 显式构造函数声明，也默认通过sc_module(name)实例化基类
+    SC_METHOD(func_b); // 注册成员函数
   }
   void func_b() { // define function
     std::cout << name() << ", SC_HAS_PROCESS" << std::endl;
   }
 };
 
-SC_MODULE(MODULE_C) { // pass additional input argument(s)
+SC_MODULE(MODULE_C) { // 可传额外的输入参数
   const int i;
-  SC_HAS_PROCESS(MODULE_C); // OK to use SC_CTOR, which will also define an un-used constructor: MODULE_A(sc_module_name);
-  MODULE_C(sc_module_name name, int i) : i(i) { // define the constructor function
-    SC_METHOD(func_c); // register member function
+  SC_HAS_PROCESS(MODULE_C); // 可以使用SC_CTOR，但还将定义一个不用的构造函数：MODULE_A(sc_module_name)
+  MODULE_C(sc_module_name name, int i) : i(i) { // 定义构造函数
+    SC_METHOD(func_c); // 注册成员函数
   }
-  void func_c() { // define function
+  void func_c() { // 定义成员函数
     std::cout << name() << ", additional input argument" << std::endl;
   }
 };
 
-SC_MODULE(MODULE_D1) { // SC_CTOR inside header, constructor defined outside header
+SC_MODULE(MODULE_D1) { // 可以在头文件内使用SC_CTOR，构造函数在头文件外定义
   SC_CTOR(MODULE_D1);
   void func_d() {
     std::cout << this->name() << ", SC_CTOR inside header, constructor defined outside header" << std::endl;
   }
 };
-MODULE_D1::MODULE_D1(sc_module_name name) : sc_module(name) { // defines constructor. Fine with/without "sc_module(name)"
+MODULE_D1::MODULE_D1(sc_module_name name) : sc_module(name) { // 定义构造函数，有没有"sc_module(name)"都可
   SC_METHOD(func_d);
 }
 
-SC_MODULE(MODULE_D2) { // SC_HAS_PROCESS inside header, constructor defined outside header
+SC_MODULE(MODULE_D2) { // 可以在头文件内使用SC_HAS_PROCESS，构造函数在头文件外定义
   SC_HAS_PROCESS(MODULE_D2);
-  MODULE_D2(sc_module_name); // declares constructor
+  MODULE_D2(sc_module_name); // 声明构造函数
   void func_d() {
-    std::cout << this->name() << ", SC_CTOR inside header, constructor defined outside header" << std::endl;
+    std::cout << this->name() << ", SC_HAS_PROCESS inside header, constructor defined outside header" << std::endl;
   }
 };
-MODULE_D2::MODULE_D2(sc_module_name name) : sc_module(name) { // defines constructor. Fine with/without "sc_module(name)"
+MODULE_D2::MODULE_D2(sc_module_name name) : sc_module(name) { // 定义构造函数，有没有"sc_module(name)"都可
   SC_METHOD(func_d);
 }
 
-SC_MODULE(MODULE_E) { // SC_CURRENT_USER_MODULE and constructor defined outside header
-  MODULE_E(sc_module_name name); // c++ style constructor declaration
+SC_MODULE(MODULE_E) { // 构造函数在头文件外定义
+  MODULE_E(sc_module_name name); // c++风格声明构造函数
   void func_e() {
     std::cout << this->name() << ", SC_HAS_PROCESS outside header, CANNOT use SC_CTOR" << std::endl;
   }
 };
-MODULE_E::MODULE_E(sc_module_name name) { // constructor definition
-  SC_HAS_PROCESS(MODULE_E); // NOT OK to use SC_CTOR
+MODULE_E::MODULE_E(sc_module_name name) { // 构造函数定义
+  SC_HAS_PROCESS(MODULE_E); // 用SC_CTOR不合适
   SC_METHOD(func_e);
 }
 

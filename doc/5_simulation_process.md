@@ -36,35 +36,35 @@
 using namespace sc_core;
 
 SC_MODULE(PROCESS) {
-  sc_clock clk; // declares a clock
-  SC_CTOR(PROCESS) : clk("clk", 1, SC_SEC) { // instantiate a clock with 1sec periodicity
-    SC_METHOD(method); // register a method
-    SC_THREAD(thread); // register a thread
-    SC_CTHREAD(cthread, clk); // register a clocked thread
+  sc_clock clk; // 声明时钟信号
+  SC_CTOR(PROCESS) : clk("clk", 1, SC_SEC) { // 实例化周期为1秒的时钟
+    SC_METHOD(method); // 注册方法
+    SC_THREAD(thread); // 注册线程
+    SC_CTHREAD(cthread, clk); // 注册时钟线程
   }
-  void method(void) { // define the method member function
+  void method(void) { // 定义方法成员函数
     // no while loop here
     std::cout << "method triggered @ " << sc_time_stamp() << std::endl;
     next_trigger(sc_time(1, SC_SEC)); // trigger after 1 sec
   }
-  void thread() { // define the thread member function
-    while (true) { // infinite loop make sure it never exits 
+  void thread() { // 定义线程成员函数
+    while (true) { // 无限循环确保它永远不会退出
       std::cout << "thread triggered @ " << sc_time_stamp() << std::endl;
-      wait(1, SC_SEC); // wait 1 sec before execute again
+      wait(1, SC_SEC); // 等待1秒，然后再次执行
     }
   }
-  void cthread() { // define the cthread member function
-    while (true) { // infinite loop
+  void cthread() { // 定义时钟线程成员函数
+    while (true) { // 无线循环
       std::cout << "cthread triggered @ " << sc_time_stamp() << std::endl;
-      wait(); // wait for next clk event, which comes after 1 sec
+      wait(); // 等待下一个CLK事件，该事件在 1 秒后出现
     }
   }
 };
 
 int sc_main(int, char*[]) {
-  PROCESS process("process"); // init module
+  PROCESS process("process"); // 初始化模块
   std::cout << "execution phase begins @ " << sc_time_stamp() << std::endl;
-  sc_start(2, SC_SEC); // run simulation for 2 second
+  sc_start(2, SC_SEC); // 运行仿真2秒
   std::cout << "execution phase ends @ " << sc_time_stamp() << std::endl;
   return 0;
 }
