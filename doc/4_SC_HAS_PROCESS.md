@@ -13,12 +13,11 @@ SC_HAS_PROCESS从systemC v2.0开始引入。它只有一个参数，即模块类
 可以看出：
 
 1. 两者都将“module”定义为“SC_CURRENT_USER_MODULE”，用于通过 SC_METHOD/SC_THREAD/SC_CTHREAD将成员函数注册到仿真内核。
-2. SC_CTOR还声明了一个默认构造函数，模块名是唯一的输入参数。其影响如下：
-
+2. SC_CTOR还声明了一个默认构造函数，模块名是唯一的输入参数。其影响如下：  
     1. SC_CTOR用一行代码实现构造函数，而如果使用SC_HAS_PROCESS，则必须声明构造函数：`module_class_name(sc_module_name name, additional argument ...);`
     2. 由于SC_CTOR有一个构造函数声明，所以只能放在类的头文件中。
 
-我的建议：
+我的建议：  
 
 1. 如果模块没有仿真进程，则不要使用SC_CTOR或SC_HAS_PROCESS（通过 SC_METHOD/SC_THREAD/SC_CTHREAD向仿真内核注册成员函数）
 2. 如果模块的实例化不需要额外参数（模块名除外），则使用SC_CTOR
