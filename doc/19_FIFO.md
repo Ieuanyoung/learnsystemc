@@ -125,3 +125,44 @@ int sc_main(int, char*[]) {
   return 0;
 }
 ```
+
+> 0 s: generator1 writes 0  
+> 0 s: generator2 writes 0  
+> 0 s: generator3, before write, #free/#available=2/0  
+> 0 s: generator3, after write, #free/#available=1/0  
+> 0 s: consumer3, before read, #free/#available=1/0  
+> 0 s: consumer1 reads 0  
+> 0 s: consumer2 reads 0  
+> 0 s: consumer3, after read, #free/#available=1/0  
+> 1 s: generator1 writes 1  
+> 1 s: generator2 writes 1  
+> 1 s: generator3, before write, #free/#available=2/0  
+> 1 s: generator3, after write, #free/#available=1/0  
+> 2 s: generator1 writes 2  
+> 2 s: generator2 writes 2  
+> 2 s: generator3, before write, #free/#available=1/1  
+> 2 s: generator3, after write, #free/#available=0/1  
+> 3 s: consumer3, before read, #free/#available=0/2  
+> 3 s: consumer3, after read, #free/#available=0/1  
+> 3 s: generator3, before write, #free/#available=0/1  
+> 3 s: consumer1 reads 1  
+> 3 s: consumer2 reads 1  
+> 3 s: generator3, after write, #free/#available=0/1  
+> 3 s: generator1 writes 3  
+> 3 s: generator2 writes 3  
+> 4 s: generator3, before write, #free/#available=0/2  
+> 6 s: consumer1 reads 2  
+> 6 s: consumer3, before read, #free/#available=0/2  
+> 6 s: consumer3, after read, #free/#available=0/1  
+> 6 s: consumer2 reads 2  
+> 6 s: generator1 writes 4  
+> 6 s: generator3, after write, #free/#available=0/1  
+> 6 s: generator2 writes 4  
+> 7 s: generator3, before write, #free/#available=0/2  
+> 9 s: consumer3, before read, #free/#available=0/2  
+> 9 s: consumer3, after read, #free/#available=0/1  
+> 9 s: consumer1 reads 3  
+> 9 s: consumer2 reads 3  
+> 9 s: generator3, after write, #free/#available=0/1  
+> 9 s: generator1 writes 5  
+> 9 s: generator2 writes 5

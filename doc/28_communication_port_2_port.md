@@ -67,3 +67,6 @@ int sc_main(int, char*[]) {
   return 0;
 }
 ```
+
+> 0 s: reads from channel, val=1  
+> 1 s: reads from channel, val=2

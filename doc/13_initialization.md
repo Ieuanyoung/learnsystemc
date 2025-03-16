@@ -65,3 +65,12 @@ int sc_main(int, char*[]) {
   return 0;
 }
 ```
+
+> 结果：  
+> 0 s: catcher_1 triggered  
+> 1 s: catcher_3 triggered  
+> 1 s: catcher_1 triggered  
+> 1 s: catcher_2 triggered  
+> 3 s: catcher_3 triggered  
+> 3 s: catcher_2 triggered  
+> 3 s: catcher_1 triggered

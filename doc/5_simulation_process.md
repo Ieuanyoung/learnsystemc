@@ -9,7 +9,7 @@
 如何注册仿真：
 
   1. SC_METHOD(func): 没有自己的执行线程，不消耗模拟时间，不能暂停，也不能调用调用wait()的代码
-  2. SC_THREAD(func):有自己的执行线程，可能会消耗模拟时间，可以被暂停，并且可以调用调用wait()的代码
+  2. SC_THREAD(func): 有自己的执行线程，可能会消耗模拟时间，可以被暂停，并且可以调用调用wait()的代码
   3. SC_CTHREAD(func, event): SC_THREAD的一种特殊形式，只能对时钟边沿事件敏感
 
 何时注册：
@@ -23,12 +23,12 @@
   1. 注册只能在同一模块的成员函数上进行。
   2. 不能在end_of_elaboration回调中调用SC_CTHREAD。
 
-> 注意：
+> 注意:
 >
->    1. SC_THREAD可以做SC_METHOD或SC_CHTEAD能做的一切。见示例。
->    2. 为了再次调用SC_THREAD或SC_CTHREAD进程，要有一个while循环，以确保它永远不会退出。
->    3. SC_THREAD进程不必需while循环。next_trigger()可再次调用。
->    4. systemC中的模拟时间并不是程序实际运行的时间。它是一个由模拟内核管理的计数器。稍后解释。
+> 1. SC_THREAD可以做SC_METHOD或SC_CHTEAD能做的一切。见示例。
+> 2. 为了再次调用SC_THREAD或SC_CTHREAD进程，要有一个while循环，以确保它永远不会退出。
+> 3. SC_THREAD进程不必需while循环。next_trigger()可再次调用。
+> 4. systemC中的模拟时间并不是程序实际运行的时间。它是一个由模拟内核管理的计数器。稍后解释。
 
 ```c++
 // Learn with Examples, 2020, MIT license
@@ -45,7 +45,7 @@ SC_MODULE(PROCESS) {
   void method(void) { // 定义方法成员函数
     // no while loop here
     std::cout << "method triggered @ " << sc_time_stamp() << std::endl;
-    next_trigger(sc_time(1, SC_SEC)); // trigger after 1 sec
+    next_trigger(sc_time(1, SC_SEC)); // 一秒后触发
   }
   void thread() { // 定义线程成员函数
     while (true) { // 无限循环确保它永远不会退出

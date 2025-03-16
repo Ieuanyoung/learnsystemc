@@ -54,6 +54,16 @@ int sc_main(int, char*[]) {
   sc_start(7, SC_SEC);
   return 0;
 }
-
-
 ```
+
+> 结果：  
+> Static sensitivity: e1 or e2 @ 0 s  
+> Dynamic sensitivty: e1 or e2 @ 0 s  
+> Static sensitivity: e1 or e2 @ 2 s  
+> Dynamic sensitivty: e1 or e2 @ 2 s  
+> Static sensitivity: e1 or e2 @ 3 s  
+> Dynamic sensitivty: e1 or e2 @ 3 s  
+> Static sensitivity: e1 or e2 @ 4 s  
+> Dynamic sensitivty: e1 or e2 @ 4 s  
+> Static sensitivity: e1 or e2 @ 6 s  
+> Dynamic sensitivty: e1 or e2 @ 6 s

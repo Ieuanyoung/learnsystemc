@@ -1,6 +1,6 @@
 # SC_HAS_PROCESS
 
-SC_HAS_PROCESS从systemC v2.0开始引入。它只有一个参数，即模块类的名称。它通常与SC_CTOR相提并论。让我们看看这两个宏是如何定义的：
+SC_HAS_PROCESS从systemC v2.0开始引入。它只有一个参数，即模块类的名称。通常与SC_CTOR一起讨论。让我们看看这两个宏是如何定义的：
 
 1. SC_SCOR: `#define SC_CTOR(user_module_name) typedef user_module_name SC_CURRENT_USER_MODULE; user_module_name( ::sc_core::sc_module_name )`
 2. SC_HAS_PROCESS: `#define SC_HAS_PROCESS(user_module_name) typedef user_module_name SC_CURRENT_USER_MODULE`
@@ -12,7 +12,7 @@ SC_HAS_PROCESS从systemC v2.0开始引入。它只有一个参数，即模块类
 
 可以看出：
 
-1. 两者都将“module”定义为“SC_CURRENT_USER_MODULE”，用于通过 SC_METHOD/SC_THREAD/SC_CTHREAD将成员函数注册到仿真内核。
+1. 两者都将“module”定义为“SC_CURRENT_USER_MODULE”，通过 SC_METHOD/SC_THREAD/SC_CTHREAD 可将成员函数注册到仿真内核。
 2. SC_CTOR还声明了一个默认构造函数，模块名是唯一的输入参数。其影响如下：  
     1. SC_CTOR用一行代码实现构造函数，而如果使用SC_HAS_PROCESS，则必须声明构造函数：`module_class_name(sc_module_name name, additional argument ...);`
     2. 由于SC_CTOR有一个构造函数声明，所以只能放在类的头文件中。
@@ -23,7 +23,7 @@ SC_HAS_PROCESS从systemC v2.0开始引入。它只有一个参数，即模块类
 2. 如果模块的实例化不需要额外参数（模块名除外），则使用SC_CTOR
 3. 在实例化过程中需要额外参数时使用SC_HAS_PROCESS
 
-  ```c++
+```c++
   // Learn with Examples, 2020, MIT license
 #include <systemc>
 using namespace sc_core;

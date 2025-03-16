@@ -54,3 +54,10 @@ int sc_main(int, char*[]) {
   return 0;
 }
 ```
+
+> 0 s: consumer1 receives 1  
+> 0 s: consumer2 receives 1  
+> 1 s: consumer2 receives 1  
+> 2 s: consumer1 receives 2  
+> 2 s: consumer2 receives 2  
+> 3 s: consumer2 receives 2

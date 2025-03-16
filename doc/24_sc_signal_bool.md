@@ -64,3 +64,12 @@ int sc_main(int, char*[]) {
   return 0;
 }
 ```
+
+> 0 s: consumer_pos receives posedge, b = 1  
+> 0 s: consumer receives posedge, b = 1  
+> 1 s: consumer_neg receives negedge, b = 0  
+> 1 s: consumer receives negedge, b = 0  
+> 2 s: consumer_pos receives posedge, b = 1  
+> 2 s: consumer receives posedge, b = 1  
+> 3 s: consumer_neg receives negedge, b = 0  
+> 3 s: consumer receives negedge, b = 0

@@ -70,3 +70,15 @@ int sc_main(int, char*[]) {
   return 0; // 清理
 }
 ```
+
+> 结果：  
+> 0 s: Elaboration: constructor  
+> before end of elaboration  
+> end of elaboration  
+> start of simulation  
+> 0 s: Execution.initialization  
+> 1 s: Execution.simulation  
+> 2 s: Execution.simulation  
+> Info: /OSCI/SystemC: Simulation stopped by user.  
+> end of simulation  
+> 2 s: Cleanup: desctructor  

@@ -63,3 +63,8 @@ int sc_main(int, char*[]) {
   return 0;
 }
 ```
+  
+> s = -1; -1  
+> after delta_cycle, s = 3  
+> s = 3  
+> after delta_cycle, s = 5

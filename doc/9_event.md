@@ -63,3 +63,8 @@ int sc_main(int, char*[]) {
   return 0;
 }
 ```
+
+> 结果：  
+> Event cateched at 1 s  
+> Event cateched at 3 s  
+> Event cateched at 7 s  

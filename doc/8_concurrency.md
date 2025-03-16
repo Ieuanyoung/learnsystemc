@@ -36,3 +36,13 @@ int sc_main(int, char*[]) {
   return 0;
 }
 ```
+
+> 0 s: thread1  
+> 0 s: thread2  
+> 2 s: thread1  
+> 3 s: thread2  
+> 4 s: thread1  
+> 6 s: thread2  
+> 6 s: thread1  
+> 8 s: thread1  
+> 9 s: thread2  

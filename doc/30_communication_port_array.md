@@ -28,7 +28,7 @@ Example:
   5. sc_port<IF,1,SC_ZERO_OR_MORE_BOUND> // 与0或1个通道实例绑定
   6. sc_port<IF,3,SC_ZERO_OR_MORE_BOUND> // 与0或1或2或3个通道实例绑定
   7. sc_port<IF,3,SC_ALL_BOUND>          // 与3个通道实例绑定
-  8. sc_port<IF, 3>                      // 一个包含3个端口的数组，每个端口绑定1个通道实例
+  8. sc_port<IF> p[3]                    // 一个包含3个端口的数组，每个端口绑定1个通道实例
   9. vector<sc_port<IF>> p(3)            // 一个包含3个端口的数组，每个端口绑定1个通道实例
 
 ```cpp
@@ -132,3 +132,8 @@ int sc_main(int, char*[]) {
   return 0;
 }
 ```
+
+> 0 s; reader9, port 0/1/2 = 1/0/0  
+> 0 s; reader7, port 0/1/2 = 0/1/0  
+> 1 s; reader9, port 0/1/2 = 2/0/0  
+> 1 s; reader7, port 0/1/2 = 0/2/0

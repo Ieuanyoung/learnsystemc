@@ -60,3 +60,10 @@ int sc_main(int, char*[]) {
   return 0;
 }
 ```
+
+1 s: catches e
+1 s: catches eq
+2 s: catches eq
+11 s: catches e
+11 s: catches eq
+12 s: catches eq

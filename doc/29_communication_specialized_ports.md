@@ -119,3 +119,16 @@ int sc_main(int, char*[]) {
   return 0;
 }
 ```
+
+> 0 s: posedge_event. p1 = 1; posedge = 1  
+> 0 s: value_changed_event. p1 = 1  
+> 0 s: default_event. p1 = 1; p1 triggered? 1; p2 triggered? 0  
+> 1 s: negedge_event. p1 = 0; negedge = 1  
+> 1 s: value_changed_event. p1 = 0  
+> 1 s: default_event. p1 = 0; p1 triggered? 1; p2 triggered? 0  
+> 2 s: posedge_event. p1 = 1; posedge = 1  
+> 2 s: value_changed_event. p1 = 1  
+> 2 s: default_event. p1 = 1; p1 triggered? 1; p2 triggered? 0  
+> 3 s: negedge_event. p1 = 0; negedge = 1  
+> 3 s: value_changed_event. p1 = 0  
+> 3 s: default_event. p1 = 0; p1 triggered? 1; p2 triggered? 0

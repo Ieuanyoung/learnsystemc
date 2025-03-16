@@ -76,3 +76,18 @@ int sc_main(int, char*[]) {
   return 0;
 }
 ```
+
+> 0 s: locked by thread_1, value is 1  
+> 0 s: locked by thread_2, value is 0  
+> 1 s: unlocked by thread_1, value is 1  
+> 1 s: unlocked by thread_2, value is 2  
+> 1 s: locked by thread_3, value is 1  
+> 1 s: locked by thread_2, value is 0  
+> 2 s: unlocked by thread_3, value is 1  
+> 2 s: unlocked by thread_2, value is 2  
+> 2 s: locked by thread_1, value is 1  
+> 2 s: locked by thread_2, value is 0  
+> 3 s: unlocked by thread_1, value is 1  
+> 3 s: unlocked by thread_2, value is 2  
+> 3 s: locked by thread_3, value is 1  
+> 3 s: locked by thread_2, value is 0

@@ -54,5 +54,7 @@ int sc_main(int, char*[]) {
   sc_start(2, SC_SEC);
   return 0;
 }
-
 ```
+
+> 0 s: reads from outside channel, val=1  
+> 1 s: reads from outside channel, val=2

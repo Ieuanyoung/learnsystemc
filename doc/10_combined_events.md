@@ -87,3 +87,12 @@ int sc_main(int, char*[]) {
 }
 
 ```
+
+> 结果：  
+> 1 s: catch e1  
+> 2 s: 2sec timeout  
+> 3 s: catch e2 and e3  
+> 4 s: catch e4 or e5  
+> 5 s: 5sec timeout or catch e6  
+> 7 s: 20sec timeout or catch e7 or e8  
+> 10 s: 20sec timeout or catch (e9 and e10)

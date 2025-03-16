@@ -69,5 +69,12 @@ int sc_main(int, char*[]) {
   sc_start(4, SC_SEC);
   return 0;
 }
-
 ```
+
+> 0 s: thread_1 obtained resource by trylock()  
+> 1 s: unlocked by thread_1  
+> 1 s: thread_2 obtained resource by lock()  
+> 2 s: unlocked by thread_2  
+> 2 s: thread_1 obtained resource by lock()  
+> 3 s: unlocked by thread_1  
+> 3 s: thread_2 obtained resource by lock()

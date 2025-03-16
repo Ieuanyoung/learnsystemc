@@ -80,3 +80,6 @@ int sc_main(int, char*[]) {
   return 0;
 }
 ```
+
+> 0 s: val = 1  
+> 1 s: val = 2

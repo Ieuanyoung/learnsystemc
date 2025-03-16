@@ -86,3 +86,8 @@ int sc_main(int, char*[]) {
   return 0;
 }
 ```
+
+> 0 s: reads from own channel, val=1  
+> 0 s: reads from outside channel, val=1  
+> 1 s: reads from own channel, val=2  
+> 1 s: reads from outside channel, val=2

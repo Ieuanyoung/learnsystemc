@@ -68,5 +68,15 @@ int sc_main(int, char*[]) {
   sc_start(2, SC_SEC); // 运行仿真2秒
   return 0;
 }
-
 ```
+
+> 0 s: writer1 writes 1  
+> 0 s: consumer2 reads s1=1; s2=1  
+> 0 s: consumer1 reads s1=1; s2=1  
+> 0 s: writer2 writes -1  
+> 0 s: consumer2 reads s1=1; s2=-1  
+> 1 s: writer1 writes 2  
+> 1 s: consumer2 reads s1=2; s2=2  
+> 1 s: consumer1 reads s1=2; s2=2  
+> 1 s: writer2 writes -2  
+> 1 s: consumer2 reads s1=2; s2=-2

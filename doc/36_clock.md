@@ -4,6 +4,8 @@ sc_clock是一个从sc_signal类派生出来的预定义原始通道，用于模
 与时钟相关的值和事件可通过sc_signal_in_if<bool>接口访问。
 
 Constructor:
+
+```cpp
 sc_clock(
   const char* name_, // 独特模块名
   double period_v_, // 从false到true的两次连续转换之间的时间间隔，也等于从true到false的两次连续转换之间的时间间隔。大于零，默认值为1纳秒。
@@ -12,6 +14,7 @@ sc_clock(
   double start_time_v_, // 时钟值第一次转换（false到true或true到false）的绝对时间。默认值为0。
   sc_time_unit start_time_tu_,
   bool posedge_first_ = true ); // 如果为true，则时钟初始化为false，并在开始时间更改为true。反之亦然。默认值为true。
+```
 
 ```cpp
 // Learn with Examples, 2020, MIT license
@@ -41,3 +44,9 @@ int sc_main(int, char*[]) {
   return 0;
 }
 ```
+
+> 10 s, value = 0  
+> 18 s, value = 1  
+> 20 s, value = 0  
+> 28 s, value = 1  
+> 30 s, value = 0

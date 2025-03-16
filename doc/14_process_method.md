@@ -53,3 +53,12 @@ int sc_main(int, char*[]) {
   return 0;
 }
 ```
+
+> method0 @ 0 s  
+> thread0 @ 0 s  
+> method0 @ 1 s  
+> thread1 @ 1 s  
+> method0 @ 2 s  
+> thread2 @ 2 s  
+> method0 @ 3 s  
+> thread3 @ 3 s  

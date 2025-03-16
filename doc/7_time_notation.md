@@ -37,3 +37,12 @@ sc_core::sc_report_handler::set_actions( "/IEEE_Std_1666/  deprecated", sc_core:
   return 0;
 }
 ```
+
+> 结果：  
+> 1 SEC =     1 SEC  
+> 1  MS = 0.001 SEC  
+> 1  US = 1e-06 SEC  
+> 1  NS = 1e-09 SEC  
+> 1  PS = 1e-12 SEC  
+> 1  FS = 1e-15 SEC  
+> 2 hours, 1 minutes, 1seconds

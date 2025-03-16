@@ -50,6 +50,10 @@ int sc_main(int, char*[]) {
   sc_start(7, SC_SEC);
   return 0;
 }
-
-
 ```
+
+> 0 s: s1 & s2 triggered  
+> 2 s: s1 triggered  
+> 3 s: s2 triggered  
+> 4 s: s1 triggered  
+> 6 s: s1 & s2 triggered

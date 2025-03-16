@@ -102,3 +102,9 @@ int sc_main(int, char*[]) {
   return 0;
 }
 ```
+
+> Warning: ctor: register function  
+> Info: main: simulation starts  
+> Info: reader: read 1  
+> Info: reader: read 2  
+> Info: main: simulation ends

@@ -90,3 +90,6 @@ int sc_main(int, char*[]) {
   return 0;
 }
 ```
+
+> 0 s: interrupt received  
+> 1 s: interrupt received

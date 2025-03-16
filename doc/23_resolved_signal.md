@@ -69,8 +69,7 @@ int sc_main(int, char*[]) {
 }
 ```
 
-结果:  
- 0 | X | 0 | X |  // consumer2 == 0, consumer1 = 0, 1, Z, X  
- X | 1 | 1 | X |  // consumer2 == 1, consumer1 = 0, 1, Z, X  
- 0 | 1 | Z | X |  // consumer2 == Z, consumer1 = 0, 1, Z, X  
- X | X | X | X |  // consumer2 == X, consumer1 = 0, 1, Z, X
+> 0 | X | 0 | X |  // consumer2 == 0, consumer1 = 0, 1, Z, X  
+> X | 1 | 1 | X |  // consumer2 == 1, consumer1 = 0, 1, Z, X  
+> 0 | 1 | Z | X |  // consumer2 == Z, consumer1 = 0, 1, Z, X  
+> X | X | X | X |  // consumer2 == X, consumer1 = 0, 1, Z, X

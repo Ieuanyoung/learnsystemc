@@ -49,6 +49,10 @@ int sc_main(int, char*[]) {
   sc_start();
   return 0;
 }
-
-
 ```
+
+> 结果：  
+> add_x: 1 + 2 = 3  
+> multiply_y: 1 * 3 = 3  
+> add_y: 3 + 2 = 5  
+> multiply_x: 3 * 3 = 9  
